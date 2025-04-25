@@ -1,0 +1,11 @@
+  =>  Template Name    : NileTe
+
+  =>  Template Link    : https://hashibutech.com/NileTe
+
+  =>  Template License : https://hashibutech.com/license (or read the LICENSE.txt file)
+
+  =>  Template Author  : Hashibu Ssekweyama
+
+  =>  Author Website   : https://hashibutech.com
+
+  =>  About hashibutech : hashibutech is one of the top creators and publishers of Free HTML templates, HTML landing pages, HTML email templates and HTML snippets in the world. Read more at ( https://hashibutech.com/about-us )

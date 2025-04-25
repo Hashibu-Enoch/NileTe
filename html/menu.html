@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>NileTe</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- NileTe Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>NileTe</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        <a href="menu.html" class="nav-item nav-link active">Menu</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="booking.html" class="dropdown-item">Booking</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="booking.html" class="btn btn-primary py-2 px-4">Book A Table</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Food Menu</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; }
+            .menu-container { width: 80%; margin: auto; }
+            .menu-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ddd; }
+            button { background-color: lime; color: white; padding: 5px 10px; border: none; cursor: pointer; }
+            #cart { margin-top: 20px; padding: 10px; background: #f8f8f8; }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to our Delicious Delights</h1>
+        <h2>Our Menu</h2>
+        <h2>Shopping Cart</h2>
+        <div id="cart"></div>
+        
+        <script>
+            let cart = [];
+            function addToCart(item, price) {
+                cart.push({ item, price });
+                displayCart();
+            }
+            function displayCart() {
+                let cartDiv = document.getElementById("cart");
+                cartDiv.innerHTML = "";
+                let total = 0;
+                cart.forEach((product, index) => {
+                    total += product.price;
+                    cartDiv.innerHTML += `<p>${product.item} - UGX ${product.price} <button onclick="removeItem(${index})">Remove</button></p>`;
+                });
+                cartDiv.innerHTML += `<h3>Total: UGX ${total}</h3>`;
+            }
+            function removeItem(index) {
+                cart.splice(index, 1);
+                displayCart();
+            }
+        </script>
+        <div class="menu-container" id="menu">
+            <div class="menu-item">
+                
+            </div>
+            <div class="menu-item">
+            
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                                <i class="fa fa-coffee fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <large class="text-body">Popular</large>
+                                    <h5 class="mt-n1 mb-0">FOOD (EMERE)</h5>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                                <i class="fa fa-hamburger fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <large class="text-body">Special</large>
+                                    <h5 class="mt-n1 mb-0">SAUCE (ENVA)</h5>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <large class="text-body">Lovely</large>
+                                    <h5 class="mt-n1 mb-0">DRINKS (EBYOKUNYWA)</h5>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-4">
+                                <i class="fa fa-utensils fa-2x text-primary"></i>
+                                <div class="ps-3">
+                                    <large class="text-body">Lovely</large>
+                                    <h5 class="mt-n1 mb-0">FRUITS (EBIBALA)</h5>
+                                </div>
+                            </a>
+                            </li>
+                    </ul>
+                    </div>
+                    
+
+            </div>
+
+<!-- Tab 1 here -->
+
+
+<div class="tab-content">
+    <div id="tab-1" class="tab-pane fade show p-0 active">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Matooke.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amatooke amanyige</span>
+                            <span class="text-primary">UGX: 10,000</span><button onclick="addToCart('Amatooke Amanyige', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Smashed Banana</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Akalo.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Akalo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Akalo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mingled Millet flour</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Brown rice.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Omucheere</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Omucheere', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Brown rice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Akawunga</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Akawunga', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mingled maize flour</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Boiled sweet potatoes.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Lumonde</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Lumonde', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Embooli / Sweet potatoes</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Boiled irish.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Obumonde obuzungu</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obumonde obuzungu', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Irish potatoes</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Boiled cassava.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Muwogo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Muwogo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Boiled cassava</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Omugoyo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Omugoyo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Smashed lumonde and cassava mixed with beans</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Amayuni.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amayuni</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amayuni', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Yams</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/kyetumula.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Kyetumula</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Kyetumula', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Bbalugu</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amukeke</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amukeke', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Amukeke</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ensujju</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ensujju', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Pumpkin</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Tab 2 here-->
+
+    <div id="tab-2" class="tab-pane fade show p-0">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/boiled beef.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enyama y'ente</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enyama yente', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Boiled beef</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/chicken stew.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enkoko enfumbe</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enkoko enfumbe', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Boiled chicken</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enyama mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enyama mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted beef</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enkoko mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span> <button onclick="addToCart('Enkoko mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted chicken</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Oluwombo lwenyama</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Oluwombo lwenyama', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Oluwombo lwenyama</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/oluwombo lyenkoko.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Oluwombo lwenkoko</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Oluwombo lwenkoko', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Oluwombo lwenkoko</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ebinyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ebinyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nuts</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Oluwombo lyekinyebwa.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Oluwombo lwekinyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Oluwombo lwekinyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Oluwombo lwekinyebwa</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enyama y'embuzi</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enyama yembuzi', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Goat meat</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enyama ya ssekkoko</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enyamaya ssekkoko', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Turkey meat</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/fresh fish stew.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Engege embisi</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Engege embisi', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Fresh Fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ebijanjalo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ebijanjalo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Beans</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Engege embisi mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Engege embisi mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted fresh fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Obutiko</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obutiko', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mushroom / Butuuzi /Obukoryo</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/fried fish stew.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Engege enkalu</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Engege enkalu', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Dried Fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Nakati</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Nakati', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Greens</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Engege enkalu mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Engege enkalu mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted Dried Fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Dodo.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Dodo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Dodo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Red vegatables</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/silver fish.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Mukene</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Mukene', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Silver Fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Dodo mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Dodo mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted red vegetables</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Mukene mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Mukene mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted silver fish</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Khamalewa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Khamalewa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Khamalewa</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Emboga</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Emboga', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Cabbage</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Khamalewa in G.nut</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Khamalewa in G.nut', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted Khamalewa</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Emboga mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Emboga mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted cabbage</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Pseudo Malewa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Pseudo Malewa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Yam fibres</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Sukuma wiki</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Sukuma wiki', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Sukuma wiki</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ejobyo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ejobyo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Ejobyo</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enswa mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enswa mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted white aunts</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ejobyo mu binyebwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ejobyo mu binyebwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">G.nut pasted peas leaves</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Egobe</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Egobe', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Peas leaves</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Mulekula</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Mulekula', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mulekula</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Cassava leaves</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Cassava leaves', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Cassava leaves</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Magela</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Magela', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Magela</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Tab 3 here-->
+
+
+    <div id="tab-3" class="tab-pane fade show p-0">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Bushera.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Bushera</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Bushera', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Millet juice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Amazyuta.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amazyuta</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amazyuta', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Amazyuta</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Omubisi.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Omubisi</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Omubisi', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Omubisi</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Cabbage juice</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Cabbage juice', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Cabbage juice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Mango juice</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Mango juice', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mango juice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Avocado juice</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Avocado juice', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Avocado juice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Sugar cane juice</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Sugar cane juice', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Sugar cane juice</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Akatunda.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Akatunda</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Akatunda', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Passion fruit juice</small>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Beet root juice</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Beet root juice', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Beet root juice</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Hibiscus juice</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Hibiscus juice', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Hibiscus juice</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Jwisi womulondo</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Jwisi womulondo', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Mulondized juice</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/test.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Cock tail juice</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Cock tail juice', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Cock tail juice</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/soda.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Soda</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Soda', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Soda</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/Amazi.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Amazi</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amazi', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Drinking water</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/Milk.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Amata</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amata', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Milk</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/Obuuji bwa kasooli.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Obuuji bwa kasooli</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obuuji bwa kasooli', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Maize flour porredge</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/chocolated milk.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Amata agaliko chocolate</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amata agaliko chocolate', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Chocolated milk</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/obuuji bwa muwogo.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Obuuji bwa muwogo</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obuuji bwa muwogo', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Cassava flour porredge</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/chai mukalu.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Chai mukalu</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Chai mukalu', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Tea</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/Obuuji bwobulo.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Obuuji bwobulo</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obuuji bwobulo', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Millet flour porredge</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/Obuuji bwomucheere.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Obuuji bwomucheere</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obuuji bwomucheere', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Rice flour porredge</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="flex-shrink-0 img-fluid rounded" src="img/obuuji bwa soya.jpg" alt="" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                    <span>Obuuji bwa soya</span>
+                                    <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Obuuji bwa soya', 10000)">Add to Cart</button>
+                                </h5>
+                                <small class="fst-italic">Cow peas flour porredge</small>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+    <!--Tab 4 here-->
+
+
+    <div id="tab-4" class="tab-pane fade show p-0">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/ffene.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ffene</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ffene', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Jack fruit</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/cucumber.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Cucumber</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Cucumber', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Cucumber</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Emicungwa.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Emicungwa</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Emicungwa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Oranges</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Enimaawa.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enimaawa</span>
+                            <span class="text-primary">UGX 10,000</span> <button onclick="addToCart('Enimaawa', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Oranges</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Enanaansi.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enanaansi</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enanaansi', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Pineapples</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Emiyembe.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Emiyembe</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Emiyembe', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Mangoes</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Ebikajjo.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ebikajjo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ebikajjo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Sugar canes</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/amenvu.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ameenvu</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Ameenvu', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Yellow Banana</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Apple.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Apple</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Apple', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Apple</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Pia.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Pia</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Pia', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Pia</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Watermelon.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Watermelon</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Watermelon', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Watermelon</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Ebitafeeri.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Ebitafeeri</span>
+                            <span class="text-primary">UGX 10,000</span> <button onclick="addToCart('Ebitafeeri', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Ebitafeeri</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Amapapaali.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amapapaali</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amapapaali', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Paw paw</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Coconut.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Coconut</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Coconut', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Coconut</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Kooko.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Kooko</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Kooko', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Cocoa</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/olive fruit.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Olive fruit</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Olive fruit', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Olive fruit</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Amapeera.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Amapeera</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Amapeera', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Guavas</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Jambula.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Jambula</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Jambula', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Jambula</small>
+                    </div>
+                </div>
+            </div><div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/kedo.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Kedo</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Kedo', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Avocado / Fwakedo </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Enkoma mawanga.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Enkoma mawanga</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Enkoma mawanga', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Enkoko mawanga</small>
+                    </div>
+                </div>
+            </div><div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/Entuntunu.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Entuntunu</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Entuntunu', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Entuntunu</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/dates.jpg" alt="" style="width: 80px;">
+                    <div class="w-100 d-flex flex-column text-start ps-4">
+                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span>Dates</span>
+                            <span class="text-primary">UGX 10,000</span><button onclick="addToCart('Dates', 10000)">Add to Cart</button>
+                        </h5>
+                        <small class="fst-italic">Dates</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>        
+
+
+        
+                            
+        <!-- Menu End -->
+        
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                        <a class="btn btn-link" href="about.html">About Us</a>
+                        <a class="btn btn-link" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link" href="booking.html">Reservation</a>
+                        <a class="btn btn-link" href="service.html">Privacy Policy</a>
+                        <a class="btn btn-link" href="service.html">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Kampala-Uganda</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+256 777 777 777</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>NileTe.info.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                        <h5 class="text-light fw-normal">Monday - Sunday</h5>
+                        <p>24hours</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
+                        <p>Our best news appear here</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                           <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                           <a href="NileTe.info.com"><button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; 2025  <a class="border-bottom" href="NileTe.info.com">NileTe</a>, All Right Reserved. 
+							
+							<!--/*** Please keep the footer author’s credit link/attribution link/backlink. contact the author through sshashibenoch001@gmail.com. Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="AyoTTec.com">AyoTTec</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="index.html">Home</a>
+                                <a href="NileTe.info.com">Cookies</a>
+                                <a href="NileTe.info.com">Help</a>
+                                <a href="NileTe.info.com">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="menu.html" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- NileTe Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
